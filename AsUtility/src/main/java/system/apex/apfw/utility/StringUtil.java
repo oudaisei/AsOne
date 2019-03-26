@@ -23,7 +23,7 @@ public class StringUtil {
 		boolean result;
 
 		if(null == s) {
-			return false;
+			return true;
 		}
 
 		result = s.isEmpty();
