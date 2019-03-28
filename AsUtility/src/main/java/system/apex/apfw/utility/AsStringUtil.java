@@ -1,7 +1,7 @@
 package system.apex.apfw.utility;
 
 /**
- * クラス名： StringUtil
+ * クラス名： AsStringUtil
  * 概　　要： ストリングに関するUtility
  *
  * @author  ods
@@ -9,7 +9,7 @@ package system.apex.apfw.utility;
  *
  */
 
-public class StringUtil {
+public class AsStringUtil {
 
 	public static String NEW_LINE_CODE = "\r\n";
 

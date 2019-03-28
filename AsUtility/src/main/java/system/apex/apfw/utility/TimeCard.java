@@ -115,7 +115,7 @@ public class TimeCard {
 
 		// 勤務表のシート名
 		String sheetName = etCard.getSheetName();
-		if(StringUtil.isNullOrEmpty(sheetName)) {
+		if(AsStringUtil.isNullOrEmpty(sheetName)) {
 			String s = String.format("勤務表のシート名が空白です。\r\n%s", inputFilename);
 			errorMessages.add(s);
 			return false;
@@ -123,7 +123,7 @@ public class TimeCard {
 
 		// 備考欄の列
 		String colNum = etCard.getRemarksColNumStr();
-		if(StringUtil.isNullOrEmpty(colNum)) {
+		if(AsStringUtil.isNullOrEmpty(colNum)) {
 			String s = "勤務表から備考列の情報を取得できません。\r\n" + inputFilename;
 			errorMessages.add(s);
 			return false;
@@ -195,7 +195,7 @@ public class TimeCard {
 
 		// 勤務表のシート名
 		String sheetName = etCard.getSheetName();
-		if(StringUtil.isNullOrEmpty(sheetName)) {
+		if(AsStringUtil.isNullOrEmpty(sheetName)) {
 			String s = String.format("勤務表のシート名が空白です。\r\n%s", inputFilename);
 			errorMessages.add(s);
 			return false;
@@ -203,7 +203,7 @@ public class TimeCard {
 
 		// 休憩時間の列
 		String colNum = etCard.getRestTimeColNumStr();
-		if(StringUtil.isNullOrEmpty(colNum)) {
+		if(AsStringUtil.isNullOrEmpty(colNum)) {
 			String s = "勤務表から休憩列の情報を取得できません。\r\n" + inputFilename;
 			errorMessages.add(s);
 			return false;
@@ -265,7 +265,7 @@ public class TimeCard {
 
 		// 勤務表のシート名
 		String sheetName = etCard.getSheetName();
-		if(StringUtil.isNullOrEmpty(sheetName)) {
+		if(AsStringUtil.isNullOrEmpty(sheetName)) {
 			String s = String.format("勤務表のシート名が空白です。\r\n%s", inputFilename);
 			errorMessages.add(s);
 			return false;
@@ -331,8 +331,8 @@ public class TimeCard {
 			// 追加モードはStringのみ対応
 			if(appendMode) {
 				String s = (String) util.sheet(sheetName).getResultValue(colNum, rowIndex);
-				if(!StringUtil.isNullOrEmpty(s)) {
-					if(!StringUtil.isNullOrEmpty(separator)) {
+				if(!AsStringUtil.isNullOrEmpty(s)) {
+					if(!AsStringUtil.isNullOrEmpty(separator)) {
 						s = s + separator + (String) cellValue;
 					} else {
 						s = s + (String) cellValue;
@@ -360,7 +360,7 @@ public class TimeCard {
 				}
 
 				// 出力された勤務表ファイル（一時ファイル）を削除する
-				if(!StringUtil.isNullOrEmpty(outputFilename)) {
+				if(!AsStringUtil.isNullOrEmpty(outputFilename)) {
 					// 出力された勤務表ファイル（一時ファイル）を勤務表ファイルに上書き
 					if(result) {
 						Files.copy(Paths.get(outputFilename), Paths.get(inputFilename), StandardCopyOption.REPLACE_EXISTING);
