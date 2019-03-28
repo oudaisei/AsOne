@@ -34,7 +34,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class ExcelUtil implements AutoCloseable {
+public class AsExcelUtil implements AutoCloseable {
 
     private OutputStream outputStream;
     private Workbook book;
@@ -57,7 +57,7 @@ public class ExcelUtil implements AutoCloseable {
         }
 
         public Builder fromClassPath(String origin) throws EncryptedDocumentException, InvalidFormatException, IOException {
-            InputStream is = ExcelUtil.class.getClassLoader().getResourceAsStream(origin);
+            InputStream is = AsExcelUtil.class.getClassLoader().getResourceAsStream(origin);
             this.book = WorkbookFactory.create(is);
             return this;
         }
@@ -83,8 +83,8 @@ public class ExcelUtil implements AutoCloseable {
             this.outputStream = os;
             return this;
         }
-        public ExcelUtil build() {
-            ExcelUtil excelUtil = new ExcelUtil();
+        public AsExcelUtil build() {
+            AsExcelUtil excelUtil = new AsExcelUtil();
             excelUtil.book = this.book;
             excelUtil.outputStream = this.outputStream;
             return excelUtil;

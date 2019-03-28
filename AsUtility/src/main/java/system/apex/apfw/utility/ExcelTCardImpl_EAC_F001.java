@@ -105,8 +105,8 @@ public class ExcelTCardImpl_EAC_F001 implements ExcelTCard {
 		try {
 			if( (null == this.sheetName) || this.sheetName.isEmpty() ) {
 				//this.sheetName = getBaseDateYYYYMM();
-				ExcelUtil util;
-				util = new ExcelUtil.Builder()
+				AsExcelUtil util;
+				util = new AsExcelUtil.Builder()
 			            .fromFile(getAbsoluteFilename()) //入力のエクセル
 			            .build();
 				Sheet sheet = util.getSheetAt(0);
@@ -121,7 +121,7 @@ public class ExcelTCardImpl_EAC_F001 implements ExcelTCard {
 
 	@Override
 	public int getRowNumOfWorkDay(Date workday) {
-		ExcelUtil util;
+		AsExcelUtil util;
 		int cellRowIndex;
 		Object cellResultValue;
 
@@ -129,7 +129,7 @@ public class ExcelTCardImpl_EAC_F001 implements ExcelTCard {
 		String sDate = sdf.format(workday);
 
 		try {
-			util = new ExcelUtil.Builder()
+			util = new AsExcelUtil.Builder()
 					            .fromFile(getAbsoluteFilename())//入力のエクセル
 					            .build();
 

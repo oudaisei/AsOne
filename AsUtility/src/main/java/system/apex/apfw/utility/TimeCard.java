@@ -281,7 +281,7 @@ public class TimeCard {
 		}
 
 		// 勤務時間の時刻を記入
-		result = printValue(inputFilename, sheetName, colNum, rowIndex, ExcelUtil.timeOnly(date), false, null);
+		result = printValue(inputFilename, sheetName, colNum, rowIndex, AsExcelUtil.timeOnly(date), false, null);
 
 		return result;
 
@@ -304,7 +304,7 @@ public class TimeCard {
 	 */
 	private boolean printValue(String inputFilename, String sheetName, String colNum, int rowIndex, Object cellValue, boolean appendMode, String separator) {
 		boolean result;
-		ExcelUtil util;
+		AsExcelUtil util;
 		String outputFilename;
 
 		// 追加モードの場合、cellValueのデータ型はStringのみ対応
@@ -323,7 +323,7 @@ public class TimeCard {
 			outputFilename = inputFilename + ".output" + String.valueOf(System.currentTimeMillis());
 
 			// ExcelUtil作成
-			util = new ExcelUtil.Builder()
+			util = new AsExcelUtil.Builder()
 								.fromFile(inputFilename) //入力ファイル
 								.output(outputFilename)  //出力ファイル
 								.build();
