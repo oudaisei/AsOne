@@ -359,13 +359,12 @@ public class TimeCard {
 					util.close();
 				}
 
-				// 出力された勤務表ファイル（一時ファイル）を勤務表ファイルに上書き
-				if(result) {
-					Files.copy(Paths.get(outputFilename), Paths.get(inputFilename), StandardCopyOption.REPLACE_EXISTING);
-				}
-
 				// 出力された勤務表ファイル（一時ファイル）を削除する
 				if(!StringUtil.isNullOrEmpty(outputFilename)) {
+					// 出力された勤務表ファイル（一時ファイル）を勤務表ファイルに上書き
+					if(result) {
+						Files.copy(Paths.get(outputFilename), Paths.get(inputFilename), StandardCopyOption.REPLACE_EXISTING);
+					}
 					Files.deleteIfExists(Paths.get(outputFilename));
 				}
 

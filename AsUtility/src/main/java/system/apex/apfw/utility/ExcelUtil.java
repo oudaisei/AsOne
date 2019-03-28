@@ -567,6 +567,7 @@ public class ExcelUtil implements AutoCloseable {
     public void close() throws IOException{
 
     	if(null == outputStream) {
+    		book.close();
         	return;
         }
 
@@ -575,12 +576,14 @@ public class ExcelUtil implements AutoCloseable {
             @SuppressWarnings("resource")
             SXSSFWorkbook sxss = new SXSSFWorkbook((XSSFWorkbook)book);
             sxss.write(outputStream);
-        }else {
+        } else {
             logger.warn("SXSSFWorkbookを使用していないため、書き込みに時間がかかります.");
             book.write(outputStream);
         }
         outputStream.flush();
         outputStream.close();
+
+        book.close();
     }
 
     public Workbook book() {
